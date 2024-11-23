@@ -1,0 +1,59 @@
+﻿
+@model JugadorModel
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Editar Jugador
+    </div>
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="Mantenedor" method="post">
+            <input asp-for="ID" type="hidden" class="form-control">
+
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input asp-for="ID" type="text" class="form-control" readonly>
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="NombreCompleto">Nombre Completo</label>
+                <input asp-for="NombreCompleto" type="text" class="form-control">
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Numero">Numero</label>
+                <input asp-for="Numero" type="number" class="form-control" min="0" step="1">
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Equipo">
+                    Equipo
+                </label>
+                <input asp-for="Equipo" type="text" class="form-control">
+                <span asp-validation-for="Equipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Alias">Alias</label>
+                <input asp-for="Alias" type="text" class="form-control">
+                <span asp-validation-for="Alias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <select asp-for="Estado" class="form-control">
+                    <option value="Transferible">Transferible</option>
+                    <option value="No Transferible">No Transferible</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
+
